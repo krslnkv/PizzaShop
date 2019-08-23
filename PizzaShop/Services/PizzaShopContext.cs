@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using  System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using  PizzaShop.Models;
+using Microsoft.Extensions.Logging.Console;
 
 namespace PizzaShop.Services
 {
@@ -24,7 +26,15 @@ namespace PizzaShop.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;port=3306;database=pizzashop;uid=root;password=root;charset=utf8");
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory).UseMySQL("server=localhost;port=3306;database=pizzashop;uid=root;password=root;charset=utf8");
         }
+        
+        public static readonly LoggerFactory MyLoggerFactory
+            = new LoggerFactory(new[]
+            {
+                new ConsoleLoggerProvider((category, level)
+                    => category == DbLoggerCategory.Database.Command.Name
+                       && level == LogLevel.Information, true)
+            });
     }
 }
