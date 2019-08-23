@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 22/08/2019 21:35:45
+ Date: 23/08/2019 19:52:19
 */
 
 SET NAMES utf8mb4;
@@ -62,12 +62,13 @@ CREATE TABLE `diameters`  (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `DiameterValue` int(11) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of diameters
 -- ----------------------------
 INSERT INTO `diameters` VALUES (1, 30);
+INSERT INTO `diameters` VALUES (2, 60);
 
 -- ----------------------------
 -- Table structure for orders
@@ -98,7 +99,13 @@ CREATE TABLE `pizzadiameters`  (
   INDEX `IX_PizzaDiameters_PizzaId`(`PizzaId`) USING BTREE,
   CONSTRAINT `FK_PizzaDiameters_Diameters_DiameterId` FOREIGN KEY (`DiameterId`) REFERENCES `diameters` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `FK_PizzaDiameters_Pizzas_PizzaId` FOREIGN KEY (`PizzaId`) REFERENCES `pizzas` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of pizzadiameters
+-- ----------------------------
+INSERT INTO `pizzadiameters` VALUES (1, 1, 1, 300);
+INSERT INTO `pizzadiameters` VALUES (2, 2, 1, 500);
 
 -- ----------------------------
 -- Table structure for pizzas
