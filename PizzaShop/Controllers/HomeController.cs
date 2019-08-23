@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PizzaShop.Models;
+using PizzaShop.Services;
 
 namespace PizzaShop.Controllers
 {
@@ -12,6 +14,7 @@ namespace PizzaShop.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
 
