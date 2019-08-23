@@ -69,10 +69,6 @@
             "MySql.Data.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.17, )"
-            },
-            "Vue.js.Developers.Version": {
-              "target": "Package",
-              "version": "[2.4.2, )"
             }
           },
           "imports": [
