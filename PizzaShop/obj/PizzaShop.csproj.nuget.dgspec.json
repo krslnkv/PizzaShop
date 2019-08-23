@@ -61,6 +61,7 @@
               "version": "[2.1.11, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -68,6 +69,10 @@
             "MySql.Data.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.17, )"
+            },
+            "Vue.js.Developers.Version": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
